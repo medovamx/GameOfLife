@@ -1,8 +1,8 @@
 
 public class grid {
 
-	cell[][] grid;
-	byte maxX, maxY;
+	private cell[][] grid;
+	private byte maxX, maxY;
 	
 	public grid(byte maxX, byte maxY) {
 		this.maxX = maxX;
@@ -17,6 +17,26 @@ public class grid {
 	    setCornerNeighbors();
 	    setEdgeNeighbors();		
 	}
+	
+		//create new grid based on the old grid's cells
+	public grid(grid oldGrid) {
+	    grid = new grid(oldGrid.getWidth(), oldGrid.getHeight());
+	    byte aliveCount = 0;
+		for(byte y = 0; y < maxY; y++){
+			for(byte x = 0; x < maxX; x++) {
+			   aliveCount = oldGrid[y][x].getAliveNeighbors();
+			   if (!oldGrid[y][x].checkLife() && aliveCount == 3)
+			       grid[y][x].setLife(true);
+			   else if (oldGrid[y][x].checkLife()) {
+			      if (aliveCount < 2 || aliveCount > 3)
+				     grid[y][x].setLife(false); 
+			      //else if (aliveCount == 2 || aliveCount == 3)
+				  //stays alive
+			   }
+			}
+		}	
+	}
+	
 	//this function creates the corner cells' neighbors
 	private void setCornerNeighbors() {
 		//bottom left-most corner
@@ -144,11 +164,17 @@ public class grid {
 	}
 	
 	
-	public grid(grid oldGrid) {
-		
+	public byte getHeight() {
+	   return maxY;
 	}
 	
+	public byte getWidth() {
+	   return maxX;
+	}
 	
+	public cell[][] getGrid() {
+	   return this.grid;
+	}
 	
 	
 }
