@@ -144,7 +144,7 @@ public class grid {
 	}
 	
 	
-	public grid(grid newGrid) {
+	public grid(grid oldGrid) {
 		
 	}
 	
