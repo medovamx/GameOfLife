@@ -10,6 +10,7 @@ public class cell {
 	public cell(byte x, byte y){
 	    this.x = x;
 	    this.y = y;
+	    neighbors = new ArrayList<cell>();
 	}
 	
 	
@@ -25,12 +26,8 @@ public class cell {
 		return neighbors;
 	}
 	
-	public void addNeighbor(cell cell) {
-		neighbors.add(cell);
-	}
-	
-	public void removeNeighbor(cell cell) {
-		neighbors.remove(cell);
+	public void addNeighbor(cell addedCell) {
+		neighbors.add(addedCell);
 	}
 	
 	public boolean checkLife() {
@@ -39,6 +36,10 @@ public class cell {
 	
 	public void setLife(boolean life) {
 		this.life = life;
+	}
+	
+	public String toString(){
+		return x + " " + y + "\n";
 	}
 	
 
