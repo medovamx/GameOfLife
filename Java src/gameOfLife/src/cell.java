@@ -4,18 +4,13 @@ import java.util.ArrayList;
 public class cell {
 	
 	private byte x, y;
-<<<<<<< HEAD
 	private boolean life;
-=======
-	private boolean life = false;
->>>>>>> b9d72bd75edafd1ccdd7a21a5c66546c00960262
 	private ArrayList<cell> neighbors;
 	
 	public cell(byte x, byte y){
 	    this.x = x;
 	    this.y = y;
 	    neighbors = new ArrayList<cell>();
-<<<<<<< HEAD
 		aliveNeighbors = 0;
 		life = false;
 	}
@@ -28,8 +23,6 @@ public class cell {
 			    count++;
 		}
 	   return count;
-=======
->>>>>>> b9d72bd75edafd1ccdd7a21a5c66546c00960262
 	}
 	
 	

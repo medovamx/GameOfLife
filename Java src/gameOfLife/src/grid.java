@@ -1,13 +1,8 @@
 
 public class grid {
 
-<<<<<<< HEAD
 	private cell[][] grid;
 	private byte maxX, maxY;
-=======
-	cell[][] grid;
-	byte maxX, maxY;
->>>>>>> b9d72bd75edafd1ccdd7a21a5c66546c00960262
 	
 	public grid(byte maxX, byte maxY) {
 		this.maxX = maxX;
@@ -22,7 +17,6 @@ public class grid {
 	    setCornerNeighbors();
 	    setEdgeNeighbors();		
 	}
-<<<<<<< HEAD
 	
 		//create new grid based on the old grid's cells
 	public grid(grid oldGrid) {
@@ -43,8 +37,6 @@ public class grid {
 		}	
 	}
 	
-=======
->>>>>>> b9d72bd75edafd1ccdd7a21a5c66546c00960262
 	//this function creates the corner cells' neighbors
 	private void setCornerNeighbors() {
 		//bottom left-most corner
@@ -172,7 +164,6 @@ public class grid {
 	}
 	
 	
-<<<<<<< HEAD
 	public byte getHeight() {
 	   return maxY;
 	}
@@ -184,13 +175,6 @@ public class grid {
 	public cell[][] getGrid() {
 	   return this.grid;
 	}
-=======
-	public grid(grid newGrid) {
-		
-	}
-	
-	
->>>>>>> b9d72bd75edafd1ccdd7a21a5c66546c00960262
 	
 	
 }
