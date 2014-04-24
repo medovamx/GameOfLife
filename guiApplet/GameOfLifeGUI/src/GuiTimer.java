@@ -1,14 +1,21 @@
 import java.util.Timer;
 
 public class GuiTimer {
-    Timer timer;
-    Grid grid;
+    private Timer timer;
+    private Grid grid;
+    private GuiTimerTask task;
     
     public GuiTimer (Grid g) {
         grid = g;
         
         timer = new Timer();
-        timer.scheduleAtFixedRate(new GuiTimerTask(grid), 0, (long) 500);
+        task = new GuiTimerTask(grid);
+        timer.scheduleAtFixedRate(task, 0, (long) 500);
+    }
+    
+    public void setGrid(Grid g) {
+        grid = g;
+        task.setGrid(g);
     }
     
     public void stopTimer() {

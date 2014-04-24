@@ -12,7 +12,7 @@ public class Applet extends javax.swing.JApplet {
     private javax.swing.JTextField widthText;
 
     private static GuiGrid guiGrid;
-    private GuiTimer timer;
+    private static GuiTimer timer;
     /**
      * Initializes the applet GameOfLifeApplet
      */
@@ -235,14 +235,12 @@ public class Applet extends javax.swing.JApplet {
         // TODO add your handling code here:
     }//GEN-LAST:event_widthTextInputMethodTextChanged
 
-    public static void replaceGrid(Grid g) {
+    public static void replaceGrid(GuiGrid g) {
         gridPanel.remove(guiGrid);
-        System.out.println("START");
-        System.out.println("g: " + g.toString());
-        guiGrid = new GuiGrid(new Grid(g));
-        System.out.println("guiGrid: " + guiGrid.getGrid().toString());
+        guiGrid = g;
         gridPanel.add(guiGrid);
         gridPanel.revalidate();
+        timer.setGrid(guiGrid.getGrid()); 
     }
 /*
     // Variables declaration - do not modify//GEN-BEGIN:variables

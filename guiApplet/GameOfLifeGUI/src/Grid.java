@@ -25,16 +25,12 @@ public class Grid {
         maxX = g.getWidth();
         grid = new Grid(maxX, maxY).getGrid();
         
-        
-        System.out.println("NEXT");
+        System.out.println("CREATING GRID");
         byte aliveCount = 0;
         for (byte y = 0; y < maxY; y++) {
             for (byte x = 0; x < maxX; x++) {
                 aliveCount = g.getCell(x, y).getAliveNeighbors();
-                
-                //System.out.println(g.getCell(x,y).checkLife());
-                //System.out.print(aliveCount + "  ");
-                
+                System.out.print(aliveCount + " ");               
                 if (!g.getCell(x, y).checkLife() && aliveCount == 3) {
                     grid[y][x].setLife(true);
                 } else if (g.getCell(x, y).checkLife()) {
@@ -44,11 +40,9 @@ public class Grid {
                     else {
                         grid[y][x].setLife(true);
                     }
-                }
-                //System.out.println(g.getCell(x,y).checkLife() + "\n");
-               
+                }               
             }
-            //System.out.println(" ");
+            System.out.println(" ");
         }
     }
 
